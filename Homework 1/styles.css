@@ -1,0 +1,48 @@
+* {
+    background-color: #F6F6F6;
+    color: #05080C;
+    line-height: 1.5;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* margin-left: 5%;
+    margin-right: 5%; */
+    /* Not sure why this code makes the citations move and look off when the code below works fine */
+}
+
+/* - Put 5px solid borders at the top and bottom of the page and use the color #222222 -- does this mean separate borders or the ones already there?*/
+
+p, h1, h2, h3, h4, h5, img, table, ul, ol, hr {
+    margin-right: 6%;
+    margin-left: 6%;
+}
+
+img {
+    float: right;
+    margin-left: 10px;
+}
+
+a {
+    color: blue;
+}
+
+a:visited {
+    color: purple;
+}
+
+a:hover {
+    color: hotpink;
+}
+
+p {
+    font-size: 18px;
+}
+
+th {
+    background-color: #222222;
+    color: white;
+    padding: 8px;
+}
+
+td {
+    background-color: #eeeeee;
+    padding: 5px;
+}
