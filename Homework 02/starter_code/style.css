@@ -1,0 +1,97 @@
+/* ################################################## */
+/* ########### Global classes / overrides ########### */
+/* ################################################## */
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+}
+
+p {
+  font-size: 18px;
+  line-height: 1.5;
+  padding: 15px 0;
+}
+
+/* Edit out later */
+/* * {
+  border: 1px solid red;
+} */
+
+/* Fonts, classes are so I can reuse the styles on a variety of elements */
+.merriweather { font-family: 'Merriweather', serif; }
+      .oswald { font-family: 'Oswald', sans-serif; }
+        .lato { font-family: 'Lato', sans-serif; }
+
+/* Colors */
+/* Dark yellow: #f2ff00 */
+/* Lighter yellow: #ffd900 */
+/* Light gray: #adadad */
+/* Medium gray: #878787 */
+
+/* Background Image */
+/* https://s3-us-west-2.amazonaws.com/s.cdpn.io/2522641/coworking.jpg */
+
+header {
+  display: flex;
+}
+
+.web-title {
+  width: 50%;
+}
+
+header ul {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  width: 50%;
+}
+
+header ul li {
+  list-style-type: none;
+  /* display: flex; */
+  justify-content: flex-end;
+}
+
+/* .tagline-container {
+  justify-content: center;
+} */
+
+.tagline {
+  width: 100%;
+  background-color: #adadad;
+}
+
+article aside {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  /* justify-content: flex-end; */
+}
+
+article aside a {
+  background-color: #f2ff00;
+  padding: 5px 35px;
+}
+
+section {
+  display: flex;
+}
+
+section div {
+  width: 33%;
+  margin-bottom: 10px;
+}
+
+section div p {
+  font-size: 15px;
+}
+
+section div a {
+  background-color: #878787;
+  padding: 5px;
+}
+
+footer {
+  width: 100%;
+  background-color: black;
+  color: white;
+}
