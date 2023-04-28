@@ -22,20 +22,20 @@ p {
         .lato { font-family: 'Lato', sans-serif; }
 
 /* Colors */
-/* Dark yellow: #f2ff00 */
-/* Lighter yellow: #ffd900 */
+/* Dark yellow: #ffd900 */
+/* Lighter yellow: #f2ff00 */
 /* Light gray: #adadad */
 /* Medium gray: #878787 */
 
-/* Background Image */
-/* https://s3-us-west-2.amazonaws.com/s.cdpn.io/2522641/coworking.jpg */
-
 header {
   display: flex;
+  align-items: center;
 }
 
 .web-title {
   width: 50%;
+  font-size: 30px;
+  padding-left: 5px;
 }
 
 header ul {
@@ -43,6 +43,7 @@ header ul {
   flex-direction: row;
   gap: 10px;
   width: 50%;
+  align-items: center;
 }
 
 header ul li {
@@ -51,47 +52,75 @@ header ul li {
   justify-content: flex-end;
 }
 
-/* .tagline-container {
-  justify-content: center;
+.big-header-links {
+  font-size:large;
+}
+
+/* .little-header-links {
+
 } */
 
 .tagline {
   width: 100%;
   background-color: #adadad;
+  text-align: center;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  font-size: larger;
+}
+
+.middle-section {
+  display: flex;
+  justify-content: flex-end;
+  background-image: url("https://s3-us-west-2.amazonaws.com/s.cdpn.io/2522641/coworking.jpg");
+  background-size: 100%;
+  height:600px;
+  align-items: center;
+  /* There has to be a better way of doing the height here */
 }
 
 article aside {
   display: flex;
   flex-direction: column;
-  width: 20%;
-  /* justify-content: flex-end; */
+  width: 25%;
+  margin-right: 10px;
+  padding: 10px;
+  background-color: rgb(135, 135, 135, 0.75);
 }
 
 article aside a {
-  background-color: #f2ff00;
+  background-color: #ffd900;
   padding: 5px 35px;
+  text-align: center;
 }
 
 section {
   display: flex;
 }
 
-section div {
+.bottom-trio {
+  display: flex;
+  flex-direction: column;
   width: 33%;
-  margin-bottom: 10px;
+  margin: 10px 5px;
+  padding: 5px;
+  border-right: 1px solid darkgray;  
+  align-items: center;
 }
 
-section div p {
+.bottom-trio p {
   font-size: 15px;
 }
 
-section div a {
+.bottom-trio a {
   background-color: #878787;
   padding: 5px;
+  width: 50%;
+  text-align: center;
 }
 
 footer {
   width: 100%;
   background-color: black;
-  color: white;
+  color: #adadad;
 }
