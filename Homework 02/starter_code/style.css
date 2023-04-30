@@ -39,25 +39,28 @@ header {
   font-size: 30px;
   padding-left: 5px;
   color: #f2ff00;
+  font-family: merriweather;
 }
 
 header ul {
   display: flex;
   flex-direction: row;
-  gap: 10px;
-  width: 50%;
+  gap: 15px;
+  width: 45%;
   align-items: center;
+  justify-content: flex-end;
 }
 
 header ul li {
   list-style-type: none;
-  /* display: flex; */
-  justify-content: flex-end;
   color: white;
+  font-family: oswald;
+
 }
 
 .big-header-links {
   font-size:large;
+  text-transform: uppercase;
 }
 
 /* .little-header-links {
@@ -79,6 +82,8 @@ header ul li {
   text-align: center;
   padding-top: 3px;
   padding-bottom: 3px;
+  font-family: lato;
+  font-style: italic;
 }
 
 .middle-section {
@@ -97,14 +102,20 @@ article aside {
   width: 400px;
   height: 250px;
   margin-right: 10px;
-  padding: 10px;
-  background-color: rgba(255, 255, 255, 0.75);
+  padding: 45px;
+  background-color: rgba(255, 255, 255, 0.90);
+  font-family: lato;
 }
 
 article aside a {
   background-color: #f2ff00;
   padding: 5px 35px;
   text-align: center;
+  font-size: xx-large;
+  height: 40px;
+  border-bottom: 2px solid #ffd900;
+  text-transform: uppercase;
+  font-family: oswald;
 }
 
 section {
@@ -115,10 +126,12 @@ section {
   display: flex;
   flex-direction: column;
   width: 33%;
-  margin: 10px 5px;
-  padding: 5px;
+  padding: 20px 10px 0 10px;
   border-right: 1px solid darkgray;  
-  align-items: center;
+  align-items: left;
+  /* Or make them align left? */
+  height: 175px;
+  font-family: merriweather;
 }
 
 .bottom-trio p {
@@ -128,8 +141,13 @@ section {
 .bottom-trio a {
   background-color: #878787;
   padding: 5px;
-  width: 50%;
+  width: 99%;
+  height: 20%;
+  /* Ugh I do not want to mix % and px */
   text-align: center;
+  text-transform: uppercase;
+  align-content: center;
+  font-family: oswald;
 }
 
 footer {
