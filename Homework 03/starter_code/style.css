@@ -135,28 +135,37 @@ ul {
     margin-bottom: 5px;
 }
 
-.footer-page-info {
+.bottom-page-info {
     display: flex;
     align-items: center;
     flex-direction: column;
+
 }
 
-.footer-page-numbers {
+.bottom-page-numbers {
     display: flex;
     gap: 20px;
     /* height: fit-content;
     width: fit-content; */
 }
 
-/* .footer-page-info p {
-    height: fit-content;
-    width: fit-content;
-} */
-
-.footer-location-info {
+.bottom-location-info {
     display: flex;
     gap: 5px;
     /* height: fit-content;
     width: fit-content; */
+}
+
+footer {
+    background-color: #474E52;
+}
+
+.footer-links {
+    display: flex;
+    gap: 10px;
+}
+
+.footer-links a {
+    color: white;
 }
 
