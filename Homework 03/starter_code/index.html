@@ -5,6 +5,9 @@
   <title>CodePen - Homework 3 - Starter Code</title>
   <link rel="stylesheet" href="./style.css">
 
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -13,38 +16,32 @@
       <div class="nav-left">
         <img src="images/logo.svg" alt="Trulia" class="trulia-logo">
         <ul>
-          <li>Buy</li>
-          <li>Rent</li>
-          <li>Mortgage</li>
-          <li>Local Scoop</li>
+          <li><a href="">Buy</a></li>
+          <li><a href="">Rent</a></li>
+          <li><a href="">Mortgage</a></li>
+          <li><a href="">Local Scoop</a></li>
         </ul>
       </div>
       <div class="nav-right">
         <ul>
-          <li>Saved Homes</li>
-          <li>Saved Searches</li>
-          <li>jsir</li>
+          <li><a href="">Saved Homes</a></li>
+          <li><a href="">Saved Searches</a></li>
+          <li><a href=""><span class="user-icon">J</span><span class="user-id">jsir</span></a></li>
         </ul>
       </div>
     </nav>
+    <div class="header-location-info">
+      <p class="header-location-info-p1">Homes For Sale & Real Estate in 20010</p> 
+      <p class="header-location-info-p2">79 homes available on Trulia</p>
+    </div>
   </header>
 <!-- partial:index.partial.html -->
-<p>
-## Reference content
-
-### Font
-Lato 400 Regular
-https://fonts.google.com/?category=Sans+Serif&selection.family=Lato
-
-
-</p>
  <main class="trulia-grid">
 
     <!-- Grid item 1 -->
     <article class="trulia-grid-item">
       <div class="trulia-house-image trulia-house-image-1">
         <!-- Add in alts and stuff later once formatted a little more -->
-        <div class="new-box"></div>
       </div>
       <ul class="trulia-house-facts">
           <li class="trulia-house-price"><h1>$475,000</h1><img src="images/up-sign.svg" alt="red up arrow" class="trulia-article-icon"></li>
@@ -66,7 +63,7 @@ https://fonts.google.com/?category=Sans+Serif&selection.family=Lato
     <!-- Grid item 2 -->
     <article class="trulia-grid-item">
       <div class="trulia-house-image trulia-house-image-2">
-        <div class="new-box"></div>
+        <div class="new-box">new</div>
       </div>
       <ul class="trulia-house-facts">
           <li class="trulia-house-price"><h1>$774,900</h1></li>
@@ -88,7 +85,6 @@ https://fonts.google.com/?category=Sans+Serif&selection.family=Lato
     <!-- Grid item 3 -->
     <article class="trulia-grid-item">
       <div class="trulia-house-image trulia-house-image-3">
-        <div class="new-box"></div>
       </div>
       <ul class="trulia-house-facts">
           <li class="trulia-house-price"><h1>$600,000</h1></li>
@@ -110,7 +106,6 @@ https://fonts.google.com/?category=Sans+Serif&selection.family=Lato
     <!-- Grid item 4 -->
     <article class="trulia-grid-item">
       <div class="trulia-house-image trulia-house-image-4">
-        <div class="new-box"></div>
       </div>
       <ul class="trulia-house-facts">
           <li class="trulia-house-price"><h1>$630,000</h1></li>
@@ -132,7 +127,6 @@ https://fonts.google.com/?category=Sans+Serif&selection.family=Lato
     <!-- Grid item 5 -->
     <article class="trulia-grid-item">
       <div class="trulia-house-image trulia-house-image-5">
-        <div class="new-box"></div>
       </div>
       <ul class="trulia-house-facts">
           <li class="trulia-house-price"><h1>$1,295,000</h1></li>
@@ -154,7 +148,7 @@ https://fonts.google.com/?category=Sans+Serif&selection.family=Lato
     <!-- Grid item 6 -->
     <article class="trulia-grid-item">
       <div class="trulia-house-image trulia-house-image-6">
-        <div class="new-box"></div>
+        <div class="new-box">new</div>
       </div>
       <ul class="trulia-house-facts">
           <li class="trulia-house-price"><h1>$1,049,000</h1></li>
@@ -176,7 +170,6 @@ https://fonts.google.com/?category=Sans+Serif&selection.family=Lato
     <!-- Grid item 7 -->
     <article class="trulia-grid-item">
       <div class="trulia-house-image trulia-house-image-7">
-        <div class="new-box"></div>
       </div>
       <ul class="trulia-house-facts">
           <li class="trulia-house-price"><h1>$720,000</h1></li>
@@ -198,7 +191,7 @@ https://fonts.google.com/?category=Sans+Serif&selection.family=Lato
     <!-- Grid item 8 -->
     <article class="trulia-grid-item">
       <div class="trulia-house-image trulia-house-image-8">
-        <div class="new-box"></div>
+        <div class="for-sale-box">for sale by owner</div>
       </div>
       <ul class="trulia-house-facts">
           <li class="trulia-house-price"><h1>$760,000</h1></li>
@@ -220,7 +213,6 @@ https://fonts.google.com/?category=Sans+Serif&selection.family=Lato
     <!-- Grid item 9 -->
     <article class="trulia-grid-item">
       <div class="trulia-house-image trulia-house-image-9">
-        <div class="new-box"></div>
       </div>
       <ul class="trulia-house-facts">
           <li class="trulia-house-price"><h1>$760,000</h1></li>
@@ -242,7 +234,6 @@ https://fonts.google.com/?category=Sans+Serif&selection.family=Lato
     <!-- Grid item 10 -->
     <article class="trulia-grid-item">
       <div class="trulia-house-image trulia-house-image-10">
-        <div class="new-box"></div>
       </div>
       <ul class="trulia-house-facts">
           <li class="trulia-house-price"><h1>$999,000</h1></li>
@@ -264,7 +255,6 @@ https://fonts.google.com/?category=Sans+Serif&selection.family=Lato
     <!-- Grid item 11 -->
     <article class="trulia-grid-item">
       <div class="trulia-house-image trulia-house-image-11">
-        <div class="new-box"></div>
       </div>
       <ul class="trulia-house-facts">
           <li class="trulia-house-price"><h1>$474,500</h1></li>
@@ -286,7 +276,6 @@ https://fonts.google.com/?category=Sans+Serif&selection.family=Lato
     <!-- Grid item 12 -->
     <article class="trulia-grid-item">
       <div class="trulia-house-image trulia-house-image-12">
-        <div class="new-box"></div>
       </div>
       <ul class="trulia-house-facts">
           <li class="trulia-house-price"><h1>$399,000</h1></li>
@@ -330,8 +319,8 @@ https://fonts.google.com/?category=Sans+Serif&selection.family=Lato
   <section class="real-estate-insights">
     <h1>20010 Real Estate Insights</h1>
     <p>ZIP code 20010 is located in Washington, District of Columbia.</p>
-    <p>The plethora of grocery stores in ZIP code 20010 makes it easy to stock up on specialty foods, like organic and gluten-free options, without having to leave the area. There is easy access to public transportation [https://www.trulia.com/real_estate/20010-Washington/], which is the preferred way to travel here due to its ease of use and abundant travel options. Bicycles are big sellers in ZIP code 20010; everyone seems to be riding these days, whether it's for the daily commute or a fun afternoon with the family.</p>
-    <p>Many houses in ZIP code 20010 are historic with one-of-a-kind architecture, and it's clear to see why it's so important to maintain them and keep history living on. This year, the average listing price grew to $658,471  in this locale, a noticeable appreciation of 12.5 percent from $585,528 the year prior. During the same period, inventory is noticeably increasing in this locale year-over-year, with a 20 percent increase in for-sale listings last year alone. Enjoy a cozy night by the fire, as many residences here come equipped with authentic fireplaces. ZIP code 20010 has some great historic estates so if you move to one of these homes, you'll be inheriting a piece of history. If you enjoy a view and the ability to see far and wide, consider a penthouse in this place [https://www.trulia.com/for_sale/20010_zip/penthouse_keyword/] for an unparalleled experience.</p>
+    <p>The plethora of grocery stores in ZIP code 20010 makes it easy to stock up on specialty foods, like organic and gluten-free options, without having to leave the area. There is <a href="https://www.trulia.com/real_estate/20010-Washington/">easy access to public transportation</a>, which is the preferred way to travel here due to its ease of use and abundant travel options. Bicycles are big sellers in ZIP code 20010; everyone seems to be riding these days, whether it's for the daily commute or a fun afternoon with the family.</p>
+    <p>Many houses in ZIP code 20010 are historic with one-of-a-kind architecture, and it's clear to see why it's so important to maintain them and keep history living on. This year, the average listing price grew to $658,471  in this locale, a noticeable appreciation of 12.5 percent from $585,528 the year prior. During the same period, inventory is noticeably increasing in this locale year-over-year, with a 20 percent increase in for-sale listings last year alone. Enjoy a cozy night by the fire, as many residences here come equipped with authentic fireplaces. ZIP code 20010 has some great historic estates so if you move to one of these homes, you'll be inheriting a piece of history. If you enjoy a view and the ability to see far and wide, <a href="https://www.trulia.com/for_sale/20010_zip/penthouse_keyword/">consider a penthouse in this place</a> for an unparalleled experience.</p>
   </section>
 
   <footer>
