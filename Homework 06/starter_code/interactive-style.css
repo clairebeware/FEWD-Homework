@@ -1,0 +1,14 @@
+/* Featured and Expanded Item */
+
+.trulia-grid-item {
+    background-color: white;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    height: 260px;
+}
+
+.trulia-featured-grid-item {
+    height: 520px;
+    grid-row: span 2;
+}
