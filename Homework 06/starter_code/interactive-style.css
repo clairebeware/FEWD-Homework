@@ -1,7 +1,5 @@
 /* Featured and Expanded Item */
 
-
-
 .trulia-grid-item {
     transition: 0.15s ease-in-out;
     cursor: pointer;
@@ -37,10 +35,28 @@
     margin-bottom: 10px;
 }
 
+.trulia-mobile-only {
+    display: none;
+}
+
 @media (max-width: 767px) {
     /* 2 across */
     .trulia-grid {
         grid-template-columns: 1fr 1fr;
+    }
+
+    .trulia-nav-mobilehide {
+        display: none;
+    }
+
+    .trulia-mobile-only {
+        display: flex;
+    }
+
+    .trulia-mobile-only a.icon {
+        color: white;
+        margin-top: 10px;
+        margin-right: 20px;
     }
 }
 
