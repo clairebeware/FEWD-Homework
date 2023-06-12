@@ -1,14 +1,62 @@
 /* Featured and Expanded Item */
 
+
+
 .trulia-grid-item {
-    background-color: white;
-    border-radius: 5px;
-    display: flex;
-    flex-direction: column;
-    height: 260px;
+    transition: 0.15s ease-in-out;
+    cursor: pointer;
 }
 
 .trulia-featured-grid-item {
-    height: 520px;
+    grid-column: span 2;
     grid-row: span 2;
+    height: 100%;
+    min-height: 400px;
+    display: flex;
 }
+
+.trulia-featured-grid-item .trulia-house-image {
+    height: 75%;
+}
+
+.trulia-featured-grid-item .trulia-house-facts {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.trulia-featured-grid-item .trulia-house-price h1 {
+    font-size: 20px;
+}
+
+.trulia-featured-grid-item .trulia-house-price, .trulia-featured-grid-item .trulia-house-stats {
+    width: 50%;
+}
+
+.trulia-featured-grid-item .trulia-house-address {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 767px) {
+    /* 2 across */
+    .trulia-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* between above and below (768px to 1199px) is the default so no need to specify with @media */
+
+@media (min-width: 1200px) and (max-width: 1599px) {
+    /* 4 across */
+    .trulia-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+@media (min-width: 1600px) {
+    /* 6 across */
+    .trulia-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    }
+}
+
