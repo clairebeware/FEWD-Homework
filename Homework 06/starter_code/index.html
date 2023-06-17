@@ -19,9 +19,14 @@
         <a href="#"  class="trulia-nav-item">
             <img src="images/logo.svg" alt="Trulia" class="trulia-nav-logo">
         </a>
-        <a class="trulia-nav-toggle" href="#">&#9776;</a>
+        <nav class="trulia-mobile-only">
+            <a href="javascript:void(0);" class="icon trulia-nav-toggle">
+                <i class="fa fa-bars"></i>
+              </a>
+        </nav>
+        <!-- <a class="trulia-nav-toggle" href="#">&#9776;</a> -->
 
-        <ul class="trulia-nav-mobilehide">
+        <ul class="trulia-nav-mobilehide trulia-nav-mobile-show">
             <li><a class="trulia-nav-item" href="#">Buy</a></li>
             <li><a class="trulia-nav-item" href="#">Rent</a></li>
             <li><a class="trulia-nav-item" href="#">Mortgage</a></li>
@@ -29,16 +34,11 @@
         </ul>
     </nav>
     <nav class="trulia-nav-right">
-        <ul class="trulia-nav-mobilehide">
+        <ul class="trulia-nav-mobilehide trulia-nav-mobile-show">
             <li><a href="#" class="trulia-nav-item">Saved Homes</a></li>
             <li><a href="#" class="trulia-nav-item">Saved Searches</a></li>
             <li><a href="#" class="trulia-nav-item"><span class="circleLink">j</span>jsir</a></li>
         </ul>
-    </nav>
-    <nav class="trulia-mobile-only">
-        <a href="javascript:void(0);" class="icon">
-            <i class="fa fa-bars"></i>
-          </a>
     </nav>
 </header>
 

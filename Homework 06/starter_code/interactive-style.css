@@ -45,18 +45,66 @@
         grid-template-columns: 1fr 1fr;
     }
 
+    .trulia-nav {
+        display: flex;
+        flex-direction: column;
+        height: fit-content;
+        justify-content: flex-start;
+        padding-left: 30px;
+    }
+
+    a.trulia-nav-item {
+        padding-left: 0;
+    }
+
+    a.trulia-nav-item img {
+        padding-left: 0;
+    }
+
+    .trulia-nav-left {
+        display: grid;
+        grid-template-columns: 1fr 9fr;
+    }
+
+    .trulia-nav-right {
+        display: flex;
+        flex-direction: column;
+        width: fit-content;
+    }
+
+    .trulia-nav-mobile-show {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 0;
+        margin-top: 0;
+        padding-left: 40px;
+    }
+
+    .trulia-nav-mobile-show li a {
+        font-size: 25px;
+        padding-bottom: 30px
+    }
+
     .trulia-nav-mobilehide {
-        display: none;
+        display: none !important;
     }
 
     .trulia-mobile-only {
         display: flex;
+        justify-content: flex-end;
     }
 
-    .trulia-mobile-only a.icon {
+    .trulia-mobile-only a.trulia-nav-toggle {
         color: white;
-        margin-top: 10px;
+        margin-top: 5px;
         margin-right: 20px;
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: flex-end;
+        width: fit-content;
+        font-size: 18px;
+        align-items: center;
+
     }
 }
 

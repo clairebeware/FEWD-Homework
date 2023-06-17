@@ -7,7 +7,14 @@
 document.addEventListener('DOMContentLoaded', function(event) {
 
 // Toggle the navigation
-
+document.querySelector(".trulia-nav-toggle").addEventListener("click", function(e){
+  e.preventDefault();
+  console.log("this works");
+  let bothNavs = document.querySelectorAll(".trulia-nav > nav ul");
+  for(let j=0; j < bothNavs.length; j++){
+    bothNavs[j].classList.toggle("trulia-nav-mobilehide");
+  }
+});
 
 
 
