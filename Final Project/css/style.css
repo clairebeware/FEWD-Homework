@@ -1,0 +1,67 @@
+/* Project Name: Choose Your Own Adventure
+Author: Claire Youmans */
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    font-size: 20px;
+    width: fit-content;
+    background-color: grey;
+    padding: 20px 50px;
+    border-radius: 20px;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    /* placeholder */
+    height: 600px;
+}
+
+div.main-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+p.explanation {
+    margin-bottom: 50px;
+    margin-left: 20px;
+    margin-right: 20px;
+    padding: 50px;
+    border-radius: 20px;
+    background-color: grey;
+}
+
+ul {
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+/* create different breakpoints for different sizes, breakpoints can be reevaluated later */
+@media screen and (min-width: 530px) {
+    div.main-section {
+        justify-content: center;
+        margin-top: 50px;
+        background-color: grey;
+        border-radius: 20px;
+        height: 80%;
+        width: 60%;
+    }
+
+    p.explanation {
+        background-color: white;
+    }
+}

@@ -1,0 +1,95 @@
+/* Project Name: Choose Your Own Adventure
+Author: Claire Youmans */
+
+/* * {
+    border: 1px solid blue;
+} */
+body {
+    /* change later so that smaller screens can use smaller sized images */
+    background-image: url("../img/castle_brick_wall_small_size.jpg");
+    background-size: cover;
+}
+
+nav ul {
+    margin-bottom: 0;
+    margin-left: 20px;
+}
+
+.title {
+    width: 100%;
+    text-align: center;
+}
+
+main {
+    margin: 10px 20px;
+}
+
+ul {
+    display: flex;
+    padding-left: 0;
+    align-items: center;
+}
+
+li {
+    list-style-type: none;
+}
+
+header nav {
+    display: flex;
+}
+
+.explanation {
+    background-color: grey;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.main-section ul {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+li a.options {
+    background-color: grey;
+}
+
+.back-next ul {
+    justify-content: center;
+    gap: 250px;
+    margin-top: 20px;
+}
+
+.back-next ul li {
+    display: inline;
+}
+
+.inventory {
+    display: none;
+}
+
+/* Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) { ... } */
+@media screen and (min-width: 576px){
+    main {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 75% 25%;
+    }
+    .inventory {
+        display: inline;
+        float: right;
+    }
+    div.back-next {
+        /* change later so it looks better */
+    }
+}
+
+/* Medium devices (tablets, 768px and up)
+@media (min-width: 768px) { ... } */
+
+/* Large devices (desktops, 992px and up)
+@media (min-width: 992px) { ... } */
+
+/* Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { ... } */
