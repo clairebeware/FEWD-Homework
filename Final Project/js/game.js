@@ -1,19 +1,18 @@
-
+//change later to an empty array that you will use the story.js to add to
 var inventory = ["cool rock", "sword"];
 
-//figure out how to change current page!
+//starts out on page 1 but gets changed with the next button eventlistener
 var currentPage = storyChoices.page1;
-
 var choices = currentPage.choices;
 
 document.addEventListener('DOMContentLoaded', function(event) {
-    //adds the .explanation text to the paragraph on the page
-    let explanation = currentPage.text;
-    let explanationText = document.querySelector("#explanation");
-    explanationText.innerText = explanation;
-
     function pageReload() {
-        //goes through the array of choices (for now), and adds them to the page as buttons
+        //adds the .explanation text to the paragraph on the page
+        let explanation = currentPage.text;
+        let explanationText = document.querySelector("#explanation");
+        explanationText.innerText = explanation;
+
+        //goes through the array of choices and adds them to the page as buttons
         for(i=0;i<choices.length;i++) {
             let newOption = document.createElement('button');
             newOption.value = choices[i].next;
@@ -48,9 +47,17 @@ document.addEventListener('DOMContentLoaded', function(event) {
             newitem.innerText = inventory[k];
             document.querySelector('#items-go-here').appendChild(newitem);
             newitem.classList.add("list-group-item");
-            // newitem.classList.add("item");
+            newitem.classList.add("item");
           };
     
+    };
+
+    //removes elements from the page, to be used with the options and the inventory items
+    //and the explanation maybe?
+    function removeElements(elements){
+        for(var m = 0; m < elements.length; m++){
+            elements[m].parentNode.removeChild(elements[m]);
+        };
     };
 
     //calls the function, does everything above
@@ -60,7 +67,11 @@ document.addEventListener('DOMContentLoaded', function(event) {
     let backBtn = document.querySelector(".back");
     backBtn.addEventListener("click", function(e){
         //create a condition where if it's the first page it will take you back to index.html
-        e.preventDefault();
+        if(currentPage.back == "index.html"){
+            backBtn.setAttribute("href", "index.html");
+        } else {
+            e.preventDefault();
+        };
         //change out the console.log for function later
         console.log("back");
     });
@@ -69,18 +80,25 @@ document.addEventListener('DOMContentLoaded', function(event) {
     let nextBtn = document.querySelector(".next");
     nextBtn.addEventListener("click", function(e){
         //create a condition where the next button would lead the user to the credits page
-        if(1 == 2){
+        //not working :(
+        if(currentPage.choices.next == "credits.html"){
             nextBtn.setAttribute("href", "credits.html");
         } else {
             e.preventDefault();
         };
-        //change out the console.log for function later
-        let activeChoice = document.querySelector(".active");
-        let nextPage = activeChoice.value;
-        //not working because it's not reloading maybe?
-        currentPage = storyChoices.nextPage;
-        //calls the function again when the next button is clicked, need to figure out how to delete what's already there because right now it's just adding elements in addition to what's there already
-        pageReload();
+
+        //changes the current page to the next page
+        let nextPage = document.querySelector(".active").value;
+        currentPage = nextPage;
         console.log(nextPage);
+
+        //removes the previous options
+        removeElements(document.querySelectorAll(".option"));
+        //removes the previous items
+        removeElements(document.querySelectorAll(".item"));
+        // //removes the explanation text
+        // removeElements(document.querySelectorAll(".explanation"));
+        //calls the function again when the next button is clicked, need to figure out how to change the options to the new choices
+        pageReload();
     });
 });

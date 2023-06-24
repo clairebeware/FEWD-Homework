@@ -27,6 +27,10 @@ var storyChoices = {
     },
     "page2":{
         "back": "page1",
-        "text": "test"
+        "text": "test",
+        "choices": [{
+            "numberChoice": "choice1",
+            "text": "testing"
+        }]
     }
 }
