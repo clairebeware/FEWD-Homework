@@ -1,39 +1,60 @@
 
-//will be replaced with json file
-var choices = ["choice 1", "choice 2", "choice 3", "choice 4"];
+var inventory = ["cool rock", "sword"];
 
+//figure out how to change current page!
+var currentPage = storyChoices.page1;
 
+var choices = currentPage.choices;
 
 document.addEventListener('DOMContentLoaded', function(event) {
-    //goes through the array of choices (for now), and adds them to the page as buttons
-    for(i=0;i<choices.length;i++) {
-        let newOption = document.createElement('button');
-        // newOption.value = choices[i];
-        newOption.innerText = choices[i];
-        document.querySelector('#options-go-here').appendChild(newOption);
-        newOption.classList.add("list-group-item");
-        newOption.classList.add("list-group-item-action");
-        newOption.classList.add("option");
-        // document.querySelector('.option').addEventListener("click", function(){
-        //     console.log('hello');
-        // });
-        // also add classlist for active
-      };
+    //adds the .explanation text to the paragraph on the page
+    let explanation = currentPage.text;
+    let explanationText = document.querySelector("#explanation");
+    explanationText.innerText = explanation;
 
-      //creates an array of everything with the class option
-      let optionsArray = document.querySelectorAll(".option");
-      //adds eventlistener for each option
-      optionsArray.forEach(function(eachOpt) {
-          eachOpt.addEventListener("click", function(){
-            let anyActive = document.getElementsByClassName("active");
-            //removes all previous classes of active when a new one is clicked
-            for(j = 0; j < anyActive.length; j++){
-                anyActive[j].classList.remove("active");
-            };
-            //adds the active class to the new clicked option
-            eachOpt.classList.add("active");
-          });
+    function pageReload() {
+        //goes through the array of choices (for now), and adds them to the page as buttons
+        for(i=0;i<choices.length;i++) {
+            let newOption = document.createElement('button');
+            newOption.value = choices[i].next;
+            // console.log(choices[i].next);
+            newOption.innerText = choices[i].text;
+            document.querySelector('#options-go-here').appendChild(newOption);
+            newOption.classList.add("list-group-item");
+            newOption.classList.add("list-group-item-action");
+            newOption.classList.add("option");
+        };
+    
+        //creates an array of everything with the class option
+        let optionsArray = document.querySelectorAll(".option");
+        //adds eventlistener for each option
+        optionsArray.forEach(function(eachOpt) {
+            eachOpt.addEventListener("click", function(){
+                let anyActive = document.getElementsByClassName("active");
+                //removes all previous classes of active when a new one is clicked
+                for(j = 0; j < anyActive.length; j++){
+                    anyActive[j].classList.remove("active");
+                };
+                //adds the active class to the new clicked option
+                eachOpt.classList.add("active");
+              });
         });
+    
+        //if story.newItem == true, add new item?
+        //create inventory
+        for(k=0;k<inventory.length;k++) {
+            let newitem = document.createElement('li');
+            newitem.value = inventory[k];
+            newitem.innerText = inventory[k];
+            document.querySelector('#items-go-here').appendChild(newitem);
+            newitem.classList.add("list-group-item");
+            // newitem.classList.add("item");
+          };
+    
+    };
+
+    //calls the function, does everything above
+    pageReload();
     
     //eventlistener for the back button
     let backBtn = document.querySelector(".back");
@@ -54,13 +75,12 @@ document.addEventListener('DOMContentLoaded', function(event) {
             e.preventDefault();
         };
         //change out the console.log for function later
-        console.log("next");
+        let activeChoice = document.querySelector(".active");
+        let nextPage = activeChoice.value;
+        //not working because it's not reloading maybe?
+        currentPage = storyChoices.nextPage;
+        //calls the function again when the next button is clicked, need to figure out how to delete what's already there because right now it's just adding elements in addition to what's there already
+        pageReload();
+        console.log(nextPage);
     });
-
-
-    // console.log('hey');
-    // let AllOptions = document.querySelectorAll('#option');
-    // document.querySelector('.option').addEventListener('click', function(){
-    //     console.log('hello');
-    // });
 });
