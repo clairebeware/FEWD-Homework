@@ -1,12 +1,12 @@
 var storyChoices = {
-    "page1":{
+    1:{
         "back": "index.html",
         "text": "You wake up in the castle dungeons after taking part in a fight in the local tavern. Your sister's wedding is taking place today, and you absolutely cannot miss it. There is a figure sleeping on the other cot in the room, something on the ledge by the window, and a guard in the hallway. You know you need to escape somehow, what do you do?",
         "choices": [{
             "numberChoice": "choice1",
             "text": "Try to talk to the sleeping figure",
             "newItem": false,
-            "next": "page2"
+            "next": 2
             }, {
             "numberChoice": "choice2",
             "text": "Investigate the window",
@@ -25,12 +25,17 @@ var storyChoices = {
             }
         ]
     },
-    "page2":{
+    2:{
         "back": "page1",
         "text": "test",
         "choices": [{
             "numberChoice": "choice1",
-            "text": "testing"
+            "text": "testing",
+            "next": "page5"
+        }, {
+            "numberChoice": "choice2",
+            "text": "testing",
+            "next": "page6"
         }]
     }
 }

@@ -2,13 +2,15 @@
 var inventory = ["cool rock", "sword"];
 
 //starts out on page 1 but gets changed with the next button eventlistener
-var currentPage = storyChoices.page1;
-var choices = currentPage.choices;
+var currentPage = storyChoices[1];
+
 
 document.addEventListener('DOMContentLoaded', function(event) {
-    function pageReload() {
+    function pageReload(pageNumber) {
+        var choices = pageNumber.choices;
+        console.log(choices);
         //adds the .explanation text to the paragraph on the page
-        let explanation = currentPage.text;
+        let explanation = pageNumber.text;
         let explanationText = document.querySelector("#explanation");
         explanationText.innerText = explanation;
 
@@ -16,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
         for(i=0;i<choices.length;i++) {
             let newOption = document.createElement('button');
             newOption.value = choices[i].next;
-            // console.log(choices[i].next);
+            console.log(choices[i].next);
             newOption.innerText = choices[i].text;
             document.querySelector('#options-go-here').appendChild(newOption);
             newOption.classList.add("list-group-item");
@@ -49,6 +51,19 @@ document.addEventListener('DOMContentLoaded', function(event) {
             newitem.classList.add("list-group-item");
             newitem.classList.add("item");
           };
+
+        //eventlistener for the back button, right now only works if it's the first page, have to edit later
+        let backBtn = document.querySelector(".back");
+        backBtn.addEventListener("click", function(e){
+            //create a condition where if it's the first page it will take you back to index.html
+            if(pageNumber.back == "index.html"){
+                backBtn.setAttribute("href", "index.html");
+            } else {
+                e.preventDefault();
+            };
+            //change out the console.log for function later
+            console.log("back");
+        });
     
     };
 
@@ -60,21 +75,10 @@ document.addEventListener('DOMContentLoaded', function(event) {
         };
     };
 
-    //calls the function, does everything above
-    pageReload();
+    //calls the function, does everything above for pageReload
+    pageReload(currentPage);
     
-    //eventlistener for the back button
-    let backBtn = document.querySelector(".back");
-    backBtn.addEventListener("click", function(e){
-        //create a condition where if it's the first page it will take you back to index.html
-        if(currentPage.back == "index.html"){
-            backBtn.setAttribute("href", "index.html");
-        } else {
-            e.preventDefault();
-        };
-        //change out the console.log for function later
-        console.log("back");
-    });
+
 
     //eventlistener for the next button
     let nextBtn = document.querySelector(".next");
@@ -89,8 +93,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
         //changes the current page to the next page
         let nextPage = document.querySelector(".active").value;
-        currentPage = nextPage;
-        console.log(nextPage);
+        let test = eval(storyChoices.nextPage);
 
         //removes the previous options
         removeElements(document.querySelectorAll(".option"));
@@ -99,6 +102,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
         // //removes the explanation text
         // removeElements(document.querySelectorAll(".explanation"));
         //calls the function again when the next button is clicked, need to figure out how to change the options to the new choices
-        pageReload();
+        pageReload(storyChoices[nextPage]);
     });
 });
