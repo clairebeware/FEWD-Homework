@@ -6,8 +6,10 @@ Author: Claire Youmans */
 } */
 body {
     /* change later so that smaller screens can use smaller sized images */
+    /* Fix the image! it's cut in parts and repeating, not immediately noticeable but very annoying. */
     background-image: url("../img/castle_brick_wall_small_size.jpg");
     background-size: cover;
+    background-position: center;
 }
 
 nav ul {

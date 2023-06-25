@@ -5,6 +5,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    background-image: url("../img/castle_brick_wall_small_size.jpg");
+    background-size: cover;
 }
 
 header {

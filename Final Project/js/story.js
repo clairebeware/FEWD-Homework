@@ -1,6 +1,5 @@
 var storyChoices = {
     1:{
-        "back": "index.html",
         "text": "You wake up in the castle dungeons after taking part in a fight in the local tavern. Your sister's wedding is taking place today, and you absolutely cannot miss it. There is a figure sleeping on the other cot in the room, something on the ledge by the window, and a guard in the hallway. You know you need to escape somehow, what do you do?",
         "choices": [{
             "text": "Try to talk to the sleeping figure",
@@ -23,7 +22,6 @@ var storyChoices = {
         ]
     },
     2:{
-        "back": 1,
         "text": "The figure is sleeping. Do you: try to quietly wake up the person, loudly wake up the person, or go back to options?",
         "choices": [{
             "text": "Try to quietly wake up the person",
@@ -37,7 +35,6 @@ var storyChoices = {
         }]
     },
     3:{
-        "back": 1,
         "text": "You go over to the window to look closer at what's there. It appears to be a cool looking rock. Do you take it?",
         "choices": [{
             "text": "Take the rock",
@@ -48,7 +45,6 @@ var storyChoices = {
         }]
     },
     4:{
-        "back": 1,
         "text": "You try to go over to talk to the guard, but when he sees you get closer to the bars, he yells at you to back away. The sleeping figure appears to wake up at the noise. What do you do?",
         "choices": [{
             "text": "Try to talk to the guard again",
@@ -62,7 +58,6 @@ var storyChoices = {
         }]
     },
     5:{
-        "back": 2,
         "text": "You try to quietly wake up the figure on the cot, but they are still deeply asleep.",
         "choices": [{
             "text": "Try to loudly wake up the figure",
@@ -73,7 +68,6 @@ var storyChoices = {
         }]
     }, 
     6:{
-        "back": 2,
         "text": "You loudly wake up the figure. It works, but she's very unhappy with you. Nevertheless, when you explain your situation to her she decides to help you escape the castle. Will you distract the guard while she steals his keys, or will you wait out the rest of your sentence and miss the wedding?",
         "choices": [{
             "text": "Distract the guard",
