@@ -4,12 +4,17 @@ Author: Claire Youmans */
 /* * {
     border: 1px solid blue;
 } */
+
+/* font-family: 'Inconsolata', monospace;
+font-family: 'VT323', monospace; */
+
 body {
     /* change later so that smaller screens can use smaller sized images */
     /* Fix the image! it's cut in parts and repeating, not immediately noticeable but very annoying. */
     background-image: url("../img/castle_brick_wall_small_size.jpg");
     background-size: cover;
     background-position: center;
+    /* background-repeat: no-repeat; */
 }
 
 nav ul {
@@ -20,6 +25,9 @@ nav ul {
 .title {
     width: 100%;
     text-align: center;
+    font-family: 'VT323', monospace;
+    /* Fix sizing */
+    font-size: 50px;
 }
 
 main {
@@ -41,7 +49,8 @@ header nav {
 }
 
 .explanation {
-    background-color: grey;
+    border: 2px solid grey;
+    background-color: white;
     padding: 20px;
     border-radius: 20px;
 }
