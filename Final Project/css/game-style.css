@@ -19,19 +19,29 @@ body {
 
 nav ul {
     margin-bottom: 0;
+}
+
+.quit {
     margin-left: 20px;
 }
 
+.inventory-btn {
+    margin-right: 20px;
+}
+
 .title {
-    width: 100%;
+    width: fit-content;
     text-align: center;
     font-family: 'VT323', monospace;
     /* Fix sizing */
     font-size: 50px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 20px;
 }
 
 main {
     margin: 10px 20px;
+    font-family: 'Inconsolata', monospace;
 }
 
 ul {
@@ -46,6 +56,10 @@ li {
 
 header nav {
     display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
 }
 
 .explanation {
@@ -79,21 +93,52 @@ li a.options {
     display: none;
 }
 
+@media screen and (max-width: 575px) {
+    /* the body.mobile-inventory-mode sections below dictate what the page will look like when mobile-inventory-mode is toggled on: */
+    body.mobile-inventory-mode .main-section,
+    body.mobile-inventory-mode .back-next {
+        display: none;
+    }
+
+    body.mobile-inventory-mode .inventory {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}
+
+
 /* Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) { ... } */
 @media screen and (min-width: 576px){
+    nav {
+        margin: 20px 66.2px 20px 10px;
+    }
+
     main {
         display: grid;
         gap: 10px;
         grid-template-columns: 75% 25%;
+        margin: 20px 50px;
     }
+
+    /* .quit {
+        margin-left: 50px;
+    } */
+
     .inventory {
         display: inline;
         float: right;
     }
-    div.back-next {
-        /* change later so it looks better */
+
+    .mobile-only {
+        display:none;
     }
+
+
+    /* div.back-next {
+    } */
 }
 
 /* Medium devices (tablets, 768px and up)

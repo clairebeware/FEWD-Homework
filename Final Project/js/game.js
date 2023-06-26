@@ -135,4 +135,21 @@ document.addEventListener('DOMContentLoaded', function(event) {
     //create a separate js file for the credits? Or put it below maybe
     //populate the list with accomplishments, such as items recieved, items lost, people befriended, enemies made, whether or not you make it to the wedding
     //change so it's in the same html file maybe? I don't know how to keep the arrays and such from resetting when the page reloads
+
+
+    //mobile inventory toggle
+    document.querySelector("#inventory-toggle").addEventListener('click',function(e){
+        e.preventDefault();
+
+        document.querySelector(".body").classList.toggle("mobile-inventory-mode");
+
+        //changes the text of the button when the inventory is open to show that you should click it again to get back to the choices
+        if(document.querySelector("#inventory-toggle").innerText == "Inventory"){
+            document.querySelector("#inventory-toggle").innerText = "Choices";
+        } else {
+            document.querySelector("#inventory-toggle").innerText = "Inventory";
+        }
+        
+
+    });
 });

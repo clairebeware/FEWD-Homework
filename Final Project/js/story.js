@@ -13,6 +13,7 @@ var storyChoices = {
             }, {
                 //fix later so it works
             "text": "Do nothing and miss the wedding",
+            //maybe pick a number instead?
             "next": "credits.html"
             }
         ]
