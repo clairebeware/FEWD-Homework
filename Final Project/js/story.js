@@ -1,3 +1,5 @@
+//setting page 113 as the end page
+
 var storyChoices = {
     1:{
         "text": "You wake up in the castle dungeons after taking part in a fight in the local tavern. Your sister's wedding is taking place today, and you absolutely cannot miss it. There is a figure sleeping on the other cot in the room, something on the ledge by the window, and a guard in the hallway. You know you need to escape somehow, what do you do?",
@@ -14,7 +16,7 @@ var storyChoices = {
                 //fix later so it works
             "text": "Do nothing and miss the wedding",
             //maybe pick a number instead?
-            "next": "credits.html"
+            "next": 113
             }
         ]
     },
@@ -71,7 +73,7 @@ var storyChoices = {
             "next": 11
         }, {
             "text": "Wait out the rest of your sentence, and miss your sister's wedding",
-            "next": "credits.html"
+            "next": 113
         }]
     },
     7:{
@@ -138,6 +140,7 @@ var storyChoices = {
     },
     14:{
         "text": "Cool rock acquired! The figure on the cot comes over to talk to you.",
+        "newItem": "Cool rock",
         "choices": [{
             "text": "Talk to them",
             "next": 20
@@ -167,7 +170,8 @@ var storyChoices = {
             "next": 22
         }, {
             "text": "No",
-            "next": 23
+            //23
+            "next": 113
         }]
     },
     18:{
@@ -176,5 +180,9 @@ var storyChoices = {
         "choices": [{
 
         }]
+    },
+    113:{
+        "text": "End of game",
+        "endOfGame": true
     }
 }

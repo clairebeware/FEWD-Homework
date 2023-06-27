@@ -13,7 +13,8 @@ body {
     /* Fix the image! it's cut in parts and repeating, not immediately noticeable but very annoying. */
     background-image: url("../img/castle_brick_wall_small_size.jpg");
     background-size: cover;
-    background-position: center;
+    min-height: 100vh;
+    /* background-position: center; */
     /* background-repeat: no-repeat; */
 }
 
@@ -34,9 +35,10 @@ nav ul {
     text-align: center;
     font-family: 'VT323', monospace;
     /* Fix sizing */
-    font-size: 50px;
+    font-size: 35px;
     background-color: rgba(255, 255, 255, 0.75);
     border-radius: 20px;
+    padding: 10px;
 }
 
 main {
@@ -72,7 +74,7 @@ header nav {
 .main-section ul {
     flex-direction: column;
     gap: 15px;
-    align-items: center;
+    /* align-items: center; */
 }
 
 li a.options {
@@ -81,7 +83,7 @@ li a.options {
 
 .back-next ul {
     justify-content: center;
-    gap: 250px;
+    gap: 150px;
     margin-top: 20px;
 }
 
@@ -90,6 +92,14 @@ li a.options {
 }
 
 .inventory {
+    display: none;
+}
+
+.inventory h1 {
+    text-align: center;
+}
+
+.credits, .credits-play-again {
     display: none;
 }
 
@@ -108,10 +118,17 @@ li a.options {
     
 }
 
+@media screen and (max-width: 900px) {
+    .inventory h1{
+        font-size:25px;
+    }
+    
+}
+
 
 /* Small devices (landscape phones, 576px and up)
 @media (min-width: 576px) { ... } */
-@media screen and (min-width: 576px){
+@media screen and (min-width: 675px) and (max-width: 964px){
     nav {
         margin: 20px 66.2px 20px 10px;
     }
@@ -123,6 +140,16 @@ li a.options {
         margin: 20px 50px;
     }
 
+    /* Center this and/or change to be bigger? */
+    .main-section {
+        max-width: 648px;
+        
+    }
+
+    .title {
+        font-size: 50px;
+    }
+
     /* .quit {
         margin-left: 50px;
     } */
@@ -130,10 +157,17 @@ li a.options {
     .inventory {
         display: inline;
         float: right;
+        border: 2px solid grey;
+        background-color: white;
+        border-radius: 20px;
     }
 
     .mobile-only {
         display:none;
+    }
+
+    .back-next ul {
+        gap: 250px;
     }
 
 
@@ -141,11 +175,84 @@ li a.options {
     } */
 }
 
+
+
 /* Medium devices (tablets, 768px and up)
 @media (min-width: 768px) { ... } */
 
+@media screen and (min-width: 965px){
+    main {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 75% 25%;
+        margin: 20px auto;
+        max-width: 80%;
+    }
+
+    .inventory {
+        display: inline;
+        float: right;
+        border: 2px solid grey;
+        background-color: white;
+        border-radius: 20px;
+    }
+
+    .mobile-only {
+        display:none;
+    }
+
+    .title {
+        font-size: 50px;
+    }
+
+    .back-next ul {
+        gap: 250px;
+    }
+}
+
 /* Large devices (desktops, 992px and up)
-@media (min-width: 992px) { ... } */
+@media (min-width: 992px) { ... } 
+Fix
+this
+later*/
 
 /* Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) { ... } */
+
+/* Below deals with the credits: */
+.end-of-game .main-section,
+.end-of-game .back-next,
+.end-of-game .inventory,
+.end-of-game .quit{
+    display: none;
+}
+
+.end-of-game main{
+    grid-template-columns: 1fr;
+}
+
+/* Fix for smaller sizes */
+.end-of-game .credits{
+    display: inline;
+    justify-content: center;
+    border: 2px solid grey;
+    background-color: white;
+    border-radius: 20px;
+    padding: 10px 30px;
+}
+
+.end-of-game .credits ul li{
+    width: 100%;
+    padding-left: 0;
+}
+
+.end-of-game .credits-play-again{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.end-of-game .inventory-btn{
+    display: none;
+}
+

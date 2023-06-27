@@ -42,6 +42,7 @@ div.main-section {
 }
 
 p.explanation {
+    margin-top: 20px;
     margin-bottom: 50px;
     margin-left: 20px;
     margin-right: 20px;
@@ -59,7 +60,7 @@ li {
 }
 
 /* create different breakpoints for different sizes, breakpoints can be reevaluated later */
-@media screen and (min-width: 530px) {
+@media screen and (min-width: 645px) {
     div.main-section {
         justify-content: center;
         margin-top: 50px;

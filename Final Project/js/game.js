@@ -1,6 +1,8 @@
 //empty array that gets new items pushed into it depending on what choices you make
-//maybe have some text that says you have nothing in your inventory when it's empty?
 var inventory = [];
+
+//if true sends to credits
+var endOfGame = Boolean;
 
 //array to keep track of your choices so you can use the back button
 var storyRoute = ["index.html", 1];
@@ -9,6 +11,45 @@ var storyRoute = ["index.html", 1];
 function removeElements(elements){
     for(var m = 0; m < elements.length; m++){
         elements[m].parentNode.removeChild(elements[m]);
+    };
+};
+
+var achievements = [];
+
+//change this to be empty and add it to the story.js and to here as an if statement
+var friends = ["Sarah"];
+
+//add in a statement to addAchievements about this
+var madeItToWedding = Boolean;
+
+function addAchievements(inventory, friends){
+    if(inventory.length != 0 && inventory.length != undefined){
+        for(q=0; q<inventory.length; q++){
+            let addItem = `Item found: ${inventory[q]}!`;
+            achievements.push(addItem);
+        };
+    };
+    if(friends.length != 0 && friends.length != undefined){
+        for(r=0; r<friends.length; r++){
+            let makeFriend = `Friend made: ${friends[r]}!`;
+            achievements.push(makeFriend);
+        };
+    };
+};
+
+function writeCredits(){
+    if(achievements.length == 0 || achievements.length == undefined){
+        let noAchievements = document.createElement('li');
+        noAchievements.innerText = "You wait out the rest of your sentence, having had no adventures and missing your sister's wedding.";
+        document.querySelector("#highlights-go-here").appendChild(noAchievements);
+        noAchievements.classList.add("list-group-item");
+    } else{
+        for(p=0; p<achievements.length; p++){
+            let achievementLi = document.createElement('li');
+            achievementLi.innerText = achievements[p];
+            document.querySelector("#highlights-go-here").appendChild(achievementLi);
+            achievementLi.classList.add("list-group-item");
+        };
     };
 };
 
@@ -27,14 +68,16 @@ document.addEventListener('DOMContentLoaded', function(event) {
         explanationText.innerText = explanation;
 
         //goes through the array of choices and adds them to the page as buttons
-        for(i=0;i<choices.length;i++) {
-            let newOption = document.createElement('button');
-            newOption.value = choices[i].next;
-            newOption.innerText = choices[i].text;
-            document.querySelector('#options-go-here').appendChild(newOption);
-            newOption.classList.add("list-group-item");
-            newOption.classList.add("list-group-item-action");
-            newOption.classList.add("option");
+        if(choices != undefined){
+            for(i=0;i<choices.length;i++) {
+                let newOption = document.createElement('button');
+                newOption.value = choices[i].next;
+                newOption.innerText = choices[i].text;
+                document.querySelector('#options-go-here').appendChild(newOption);
+                newOption.classList.add("list-group-item");
+                newOption.classList.add("list-group-item-action");
+                newOption.classList.add("option");
+            };
         };
     
         //creates an array of everything with the class option
@@ -69,7 +112,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
                 newitem.classList.add("list-group-item");
                 newitem.classList.add("item");
               };
-        }
+        };
     };
 
     //calls the function, does everything above for pageReload
@@ -99,7 +142,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
 
     //eventlistener for the next button
-    //change so that if you click next without choosing an option it just doesn't do anything rather than reloading, maybe add an alert
     let nextBtn = document.querySelector(".next");
     nextBtn.addEventListener("click", function(e){
         //changes the current page to the next page
@@ -108,6 +150,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
         //need to fix the uncaught typeError when newItem isn't defined (larger problem of choice not existing, but also causing problems for trying to send to credits.html)
         e.preventDefault();
         let nextPage = document.querySelector(".active").value;
+        //if statement for nextPage in case it returns error for value
 
         //create a conditional where if removeItem == true, it removes the item from the inventory, and adds it to another array where it will stay so if you undo that choice it will be added back.
         console.log(nextPage);
@@ -123,19 +166,26 @@ document.addEventListener('DOMContentLoaded', function(event) {
         // if it's not undefined, add the new item to the inventory array
         if(addItem != undefined && inventory.indexOf(addItem) == -1){
             inventory.push(addItem);
-        }
+        };
+
+        //113 is the page number I chose for the credits
+        if(nextPage == 113){
+            endOfGame = storyChoices[nextPage].endOfGame;
+        };
 
         //adds the nextPage (as in new page) to the storyRoute array as an integer
         storyRoute.push(parseInt(nextPage));
         //calls the function again when the next button is clicked, reloads the page with the new options
         if(nextPage != undefined){
             pageReload(storyChoices[nextPage]);
+            if(endOfGame == true){
+                document.querySelector(".body").classList.toggle("end-of-game");
+                addAchievements(inventory, friends);
+                writeCredits();
+            };
         };
     });
-    //create a separate js file for the credits? Or put it below maybe
     //populate the list with accomplishments, such as items recieved, items lost, people befriended, enemies made, whether or not you make it to the wedding
-    //change so it's in the same html file maybe? I don't know how to keep the arrays and such from resetting when the page reloads
-
 
     //mobile inventory toggle
     document.querySelector("#inventory-toggle").addEventListener('click',function(e){
@@ -148,8 +198,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
             document.querySelector("#inventory-toggle").innerText = "Choices";
         } else {
             document.querySelector("#inventory-toggle").innerText = "Inventory";
-        }
-        
-
+        };
     });
 });
