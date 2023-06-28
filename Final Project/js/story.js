@@ -106,13 +106,14 @@ var storyChoices = {
         }]
     },
     10:{
-        "text": "You go over to the person who just woke up, and bond over your mutual dislike of the guard. After hearing about your sister's wedding, she tells you that she thinks she knows a way to escape, with you distracting the guard and her stealing the keys. Do you go along with her plan, or do you wait out the rest of your sentence and miss the wedding?",
+        "text": "You go over to the person who just woke up, and she introduces herself as Sarah. You bond over your mutual dislike of the guard. After hearing about your sister's wedding, she tells you that she thinks she knows a way to escape, with you distracting the guard and her stealing the keys. Do you go along with her plan, or do you wait out the rest of your sentence and miss the wedding?",
+        "newFriend": "Sarah",
         "choices": [{
-            "text": "Go along with the plan, distract the guard.",
+            "text": "Go along with Sarah's plan, distract the guard.",
             "next": 15
         }, {
             "text": "Wait out the rest of your sentence and miss the wedding.",
-            "next": "credits.html"
+            "next": 113
         }]
     },
     11:{
@@ -170,15 +171,39 @@ var storyChoices = {
             "next": 22
         }, {
             "text": "No",
-            //23
-            "next": 113
+            "next": 23
         }]
     },
     18:{
-        //finish
-        "text": "The guard refuses to speak to you. The (now awake) person comes over to talk to you. She ",
+        "text": "The guard refuses to speak to you. The (now awake) person comes over to talk to you. She introduces herself as Sarah, and commiserates with you over how mean the guard is. When you tell her about your sister's wedding, Sarah says she has an idea for how to escape. Will you go along with her plan?",
+        "newFriend": "Sarah",
         "choices": [{
-
+            "text": "Distract the guard while Sarah steals the key",
+            "next": 19
+        }, {
+            "text": "Do nothing and wait out the rest of your sentence",
+            "next": 113
+        }]
+    },
+    19:{
+        //TBD
+    }, 
+    20:{
+        "text": "The person comes over to you and introduces herself as Sarah. The noise of the guard yelling at you had woken her up and she commiserates with you about how awful he is. You tell her about your sister's wedding, and she tells you that she thinks she might know a way to escape. Will you distract the guard while she steals the key?",
+        "choices": [{
+            "text": "Distract the prison guard and escape with Sarah",
+            "next": 24
+        }, {
+            "text": "Wait out the rest of your sentence and miss the wedding",
+            "next": 113
+        }]
+    }, 
+    21:{
+        "text": "She happily takes the cool rock, and introduces herself as Sarah. You tell her about your sister's wedding and she tells you that she might have a way to escape. Will you distract the guard while she steals the key?",
+        "newBestFriend": "Sarah",
+        "lostItem": "Cool rock",
+        "choices": [{
+            "text": "test"
         }]
     },
     113:{

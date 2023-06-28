@@ -1,9 +1,9 @@
 //empty array that gets new items pushed into it depending on what choices you make
 var inventory = [];
-
+//to keep track of lost items for if you go back, to get them back again
+var itemLost = [];
 //if true sends to credits
 var endOfGame = Boolean;
-
 //array to keep track of your choices so you can use the back button
 var storyRoute = ["index.html", 1];
 
@@ -16,12 +16,18 @@ function removeElements(elements){
 
 var achievements = [];
 
-//change this to be empty and add it to the story.js and to here as an if statement
-var friends = ["Sarah"];
+var friends = [];
+
+//add later
+var enemies = [];
 
 //add in a statement to addAchievements about this
 var madeItToWedding = Boolean;
 
+//add later
+var endText = String;
+
+//looks through the arrays for inventory and friends, and if they're not empty, adds them to the achievements array with text to go in the credits
 function addAchievements(inventory, friends){
     if(inventory.length != 0 && inventory.length != undefined){
         for(q=0; q<inventory.length; q++){
@@ -37,6 +43,7 @@ function addAchievements(inventory, friends){
     };
 };
 
+//function similar to how the inventory is created, with the contents of the achievements array being added as li's to the credits page
 function writeCredits(){
     if(achievements.length == 0 || achievements.length == undefined){
         let noAchievements = document.createElement('li');
@@ -52,7 +59,6 @@ function writeCredits(){
         };
     };
 };
-
 
 document.addEventListener('DOMContentLoaded', function(event) {
     function pageReload(pageNumber) {
@@ -118,6 +124,9 @@ document.addEventListener('DOMContentLoaded', function(event) {
     //calls the function, does everything above for pageReload
     pageReload(storyChoices[storyRoute.slice(-1)[0]]);
 
+
+    //SET BACK BTN FOR ACHIEVEMENTS TOO
+
     //eventlistener for the back button
     let backBtn = document.querySelector(".back");
     backBtn.addEventListener("click", function(e){
@@ -133,6 +142,23 @@ document.addEventListener('DOMContentLoaded', function(event) {
                         inventory.splice(indexOfItem, 1);
                     };
                 };
+
+                //gives you back the lost item if you click back before the point at which you lost it
+                for(t=0; t<itemLost.length; t++){
+                    if(itemLost[t] == storyChoices[storyRoute.slice(-1)[0]].lostItem){
+                        let indexOfLostItem = itemLost.indexOf(itemLost[t]);
+                        inventory.push(itemLost[t]);
+                        itemLost.splice(indexOfLostItem, 1);
+                    };
+                };
+
+                //deals with removing friend from list in credits if you go back to before where it gets added
+                for(s=0; s<friends.length; s++){
+                    if(friends[s] == storyChoices[storyRoute.slice(-1)[0]].newFriend){
+                        let indexOfFriend = friends.indexOf(friends[s]);
+                        friends.splice(indexOfFriend, 1);
+                    };
+                };
                 //reloads the page with the previous page
                 pageReload(storyChoices[storyRoute.slice(-2)[0]]);
                 storyRoute.pop();
@@ -144,44 +170,49 @@ document.addEventListener('DOMContentLoaded', function(event) {
     //eventlistener for the next button
     let nextBtn = document.querySelector(".next");
     nextBtn.addEventListener("click", function(e){
-        //changes the current page to the next page
-        // if(document.querySelector(".active").value != undefined && document.querySelector(".active").value != false){
-            
-        //need to fix the uncaught typeError when newItem isn't defined (larger problem of choice not existing, but also causing problems for trying to send to credits.html)
         e.preventDefault();
-        let nextPage = document.querySelector(".active").value;
-        //if statement for nextPage in case it returns error for value
 
-        //create a conditional where if removeItem == true, it removes the item from the inventory, and adds it to another array where it will stay so if you undo that choice it will be added back.
-        console.log(nextPage);
-        //if next page is to the credits, sends you to the credits
-        if(nextPage == "credits.html"){
-            nextBtn.setAttribute("href", "credits.html");
-        } else {
-            e.preventDefault();
-        };
-
-        //if there's not a new item, it will just be undefined and the if statement below will keep it from being added
-        let addItem = storyChoices[nextPage].newItem;
-        // if it's not undefined, add the new item to the inventory array
-        if(addItem != undefined && inventory.indexOf(addItem) == -1){
-            inventory.push(addItem);
-        };
-
-        //113 is the page number I chose for the credits
-        if(nextPage == 113){
-            endOfGame = storyChoices[nextPage].endOfGame;
-        };
-
-        //adds the nextPage (as in new page) to the storyRoute array as an integer
-        storyRoute.push(parseInt(nextPage));
-        //calls the function again when the next button is clicked, reloads the page with the new options
-        if(nextPage != undefined){
-            pageReload(storyChoices[nextPage]);
-            if(endOfGame == true){
-                document.querySelector(".body").classList.toggle("end-of-game");
-                addAchievements(inventory, friends);
-                writeCredits();
+        //only does something if there's a choice selected
+        if(document.querySelector(".active") != null){
+            let nextPage = document.querySelector(".active").value;
+    
+            //if there's not a new item, it will just be undefined and the if statement below will keep it from being added
+            let addItem = storyChoices[nextPage].newItem;
+            // if it's not undefined, add the new item to the inventory array
+            if(addItem != undefined && inventory.indexOf(addItem) == -1){
+                inventory.push(addItem);
+            };
+    
+            //for items you lose
+            let loseItem = storyChoices[nextPage].lostItem;
+            if(loseItem != undefined && itemLost.indexOf(loseItem) == -1){
+                itemLost.push(loseItem);
+                let deleteItem = inventory.indexOf(loseItem);
+                inventory.splice(deleteItem, 1);
+            };
+    
+            //same as addItem but for friends
+            let addFriend = storyChoices[nextPage].newFriend;
+            //if it's not undefined, add to friends array
+            if(addFriend != undefined && friends.indexOf(addFriend) == -1){
+                friends.push(addFriend);
+            };
+    
+            //113 is the page number I chose for the credits
+            if(nextPage == 113){
+                endOfGame = storyChoices[nextPage].endOfGame;
+            };
+    
+            //adds the nextPage (as in new page) to the storyRoute array as an integer
+            storyRoute.push(parseInt(nextPage));
+            //calls the function again when the next button is clicked, reloads the page with the new options
+            if(nextPage != undefined){
+                pageReload(storyChoices[nextPage]);
+                if(endOfGame == true){
+                    document.querySelector(".body").classList.toggle("end-of-game");
+                    addAchievements(inventory, friends);
+                    writeCredits();
+                };
             };
         };
     });
