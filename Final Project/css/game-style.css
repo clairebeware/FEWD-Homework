@@ -1,21 +1,10 @@
 /* Project Name: Choose Your Own Adventure
 Author: Claire Youmans */
 
-/* * {
-    border: 1px solid blue;
-} */
-
-/* font-family: 'Inconsolata', monospace;
-font-family: 'VT323', monospace; */
-
 body {
-    /* change later so that smaller screens can use smaller sized images */
-    /* Fix the image! it's cut in parts and repeating, not immediately noticeable but very annoying. */
     background-image: url("../img/castle_brick_wall_small_size.jpg");
     background-size: cover;
     min-height: 100vh;
-    /* background-position: center; */
-    /* background-repeat: no-repeat; */
 }
 
 nav ul {
@@ -34,7 +23,6 @@ nav ul {
     width: fit-content;
     text-align: center;
     font-family: 'VT323', monospace;
-    /* Fix sizing */
     font-size: 35px;
     background-color: rgba(255, 255, 255, 0.75);
     border-radius: 20px;
@@ -74,7 +62,6 @@ header nav {
 .main-section ul {
     flex-direction: column;
     gap: 15px;
-    /* align-items: center; */
 }
 
 li a.options {
@@ -114,6 +101,14 @@ li a.options {
         display: flex;
         flex-direction: column;
         align-items: center;
+        background-color: white;
+        border-radius: 20px;
+        padding: 20px 10px;
+    }
+
+    .explanation{
+        max-height: 175px;
+        overflow: scroll;
     }
     
 }
@@ -126,8 +121,6 @@ li a.options {
 }
 
 
-/* Small devices (landscape phones, 576px and up)
-@media (min-width: 576px) { ... } */
 @media screen and (min-width: 675px) and (max-width: 964px){
     nav {
         margin: 20px 66.2px 20px 10px;
@@ -140,7 +133,10 @@ li a.options {
         margin: 20px 50px;
     }
 
-    /* Center this and/or change to be bigger? */
+    .end-of-game div.main-section.game{
+        margin: auto;
+    }
+
     .main-section {
         max-width: 648px;
         
@@ -149,10 +145,6 @@ li a.options {
     .title {
         font-size: 50px;
     }
-
-    /* .quit {
-        margin-left: 50px;
-    } */
 
     .inventory {
         display: inline;
@@ -170,15 +162,7 @@ li a.options {
         gap: 250px;
     }
 
-
-    /* div.back-next {
-    } */
 }
-
-
-
-/* Medium devices (tablets, 768px and up)
-@media (min-width: 768px) { ... } */
 
 @media screen and (min-width: 965px){
     main {
@@ -210,30 +194,25 @@ li a.options {
     }
 }
 
-/* Large devices (desktops, 992px and up)
-@media (min-width: 992px) { ... } 
-Fix
-this
-later*/
-
-/* Extra large devices (large desktops, 1200px and up)
-@media (min-width: 1200px) { ... } */
-
 /* Below deals with the credits: */
-.end-of-game .main-section,
+.end-of-game .main-section div.list-group,
 .end-of-game .back-next,
 .end-of-game .inventory,
 .end-of-game .quit{
     display: none;
 }
 
+.end-of-game nav {
+    margin: 20px 10px;
+}
+
 .end-of-game main{
     grid-template-columns: 1fr;
 }
 
-/* Fix for smaller sizes */
 .end-of-game .credits{
-    display: inline;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     border: 2px solid grey;
     background-color: white;
@@ -255,4 +234,3 @@ later*/
 .end-of-game .inventory-btn{
     display: none;
 }
-

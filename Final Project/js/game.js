@@ -7,6 +7,13 @@ var endOfGame = Boolean;
 //array to keep track of your choices so you can use the back button
 var storyRoute = ["index.html", 1];
 
+//will be added to highlights in the credits, shows items found, friends made, and enemies made
+var achievements = [];
+
+var friends = [];
+
+var enemies = [];
+
 //removes elements from the page, to be used with the options and the inventory items
 function removeElements(elements){
     for(var m = 0; m < elements.length; m++){
@@ -14,21 +21,8 @@ function removeElements(elements){
     };
 };
 
-var achievements = [];
-
-var friends = [];
-
-//add later
-var enemies = [];
-
-//add in a statement to addAchievements about this
-var madeItToWedding = Boolean;
-
-//add later
-var endText = String;
-
 //looks through the arrays for inventory and friends, and if they're not empty, adds them to the achievements array with text to go in the credits
-function addAchievements(inventory, friends){
+function addAchievements(inventory, friends, enemies){
     if(inventory.length != 0 && inventory.length != undefined){
         for(q=0; q<inventory.length; q++){
             let addItem = `Item found: ${inventory[q]}!`;
@@ -41,13 +35,20 @@ function addAchievements(inventory, friends){
             achievements.push(makeFriend);
         };
     };
+
+    if(enemies.length != 0 && enemies.length != undefined){
+        for(v=0; v<enemies.length; v++){
+            let makeEnemy = `Enemy made: ${enemies[v]}!`;
+            achievements.push(makeEnemy);
+        };
+    };
 };
 
 //function similar to how the inventory is created, with the contents of the achievements array being added as li's to the credits page
 function writeCredits(){
     if(achievements.length == 0 || achievements.length == undefined){
         let noAchievements = document.createElement('li');
-        noAchievements.innerText = "You wait out the rest of your sentence, having had no adventures and missing your sister's wedding.";
+        noAchievements.innerText = "No highlights";
         document.querySelector("#highlights-go-here").appendChild(noAchievements);
         noAchievements.classList.add("list-group-item");
     } else{
@@ -102,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
         });
     
         //create inventory
-        //if there are no items in the inventory, write text that says it's empty
+        //if there are no items in the inventory, it writes text that says it's empty
         if(inventory.length == 0){
             let emptyInventoryLi = document.createElement('li');
             emptyInventoryLi.innerText = "You don't have any items in your inventory";
@@ -123,9 +124,6 @@ document.addEventListener('DOMContentLoaded', function(event) {
 
     //calls the function, does everything above for pageReload
     pageReload(storyChoices[storyRoute.slice(-1)[0]]);
-
-
-    //SET BACK BTN FOR ACHIEVEMENTS TOO
 
     //eventlistener for the back button
     let backBtn = document.querySelector(".back");
@@ -159,6 +157,15 @@ document.addEventListener('DOMContentLoaded', function(event) {
                         friends.splice(indexOfFriend, 1);
                     };
                 };
+
+                //deals with removing enemy from list in credits if you go back to before where it gets added
+                for(u=0; u<enemies.length; u++){
+                    if(enemies[u] == storyChoices[storyRoute.slice(-1)[0]].newEnemy){
+                        let indexOfEnemy = enemies.indexOf(enemies[u]);
+                        enemies.splice(indexOfEnemy, 1);
+                    };
+                };
+
                 //reloads the page with the previous page
                 pageReload(storyChoices[storyRoute.slice(-2)[0]]);
                 storyRoute.pop();
@@ -197,11 +204,15 @@ document.addEventListener('DOMContentLoaded', function(event) {
             if(addFriend != undefined && friends.indexOf(addFriend) == -1){
                 friends.push(addFriend);
             };
-    
-            //113 is the page number I chose for the credits
-            if(nextPage == 113){
-                endOfGame = storyChoices[nextPage].endOfGame;
+
+            //same as addItem but for enemies
+            let addEnemy = storyChoices[nextPage].newEnemy;
+            //if it's not undefined, add to enemies array
+            if(addEnemy != undefined && enemies.indexOf(addEnemy) == -1){
+                enemies.push(addEnemy);
             };
+
+            endOfGame = storyChoices[nextPage].endOfGame;
     
             //adds the nextPage (as in new page) to the storyRoute array as an integer
             storyRoute.push(parseInt(nextPage));
@@ -210,13 +221,12 @@ document.addEventListener('DOMContentLoaded', function(event) {
                 pageReload(storyChoices[nextPage]);
                 if(endOfGame == true){
                     document.querySelector(".body").classList.toggle("end-of-game");
-                    addAchievements(inventory, friends);
+                    addAchievements(inventory, friends, enemies);
                     writeCredits();
                 };
             };
         };
     });
-    //populate the list with accomplishments, such as items recieved, items lost, people befriended, enemies made, whether or not you make it to the wedding
 
     //mobile inventory toggle
     document.querySelector("#inventory-toggle").addEventListener('click',function(e){
